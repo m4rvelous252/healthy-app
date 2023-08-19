@@ -13,17 +13,17 @@ export default function Home() {
       <p>自分の記録</p>
       <Button>記録をもっと見る</Button>
       <HexagonItem icon={<KnifeIcon />} label="Knife" />
-      <MealThumbnail info="05.21.Morning" src="/Meal1.png" />
+      <MealThumbnail info="05.21.Morning" src="/m01.jpg" />
       <RecordCategory
         description="自分のカラダの記録"
-        imgSrc="/Category1.png"
+        imgSrc="/MyRecommend-1.jpg"
         title="body record"
       />
       <ColumnThumbnail
         date="2021.05.17"
-        imgSrc="/Column1.png"
+        imgSrc="/column-1.jpg"
         tags={['魚料理', '和食', 'DHA']}
-        time='23:25'
+        time="23:25"
         title="魚を食べて頭もカラダも元気に！知っておきたい魚を食べるメリ…"
       />
     </main>
