@@ -6,7 +6,7 @@ import HamburgerMenu from './HamburgerMenu';
 
 const HeaderItems = [
   {
-    href: '/my-page',
+    href: '/my-record',
     icon: <MemoIcon />,
     label: '自分の記録',
   },
@@ -24,9 +24,9 @@ const HeaderItems = [
 
 const Header = () => {
   return (
-    <div className="w-full bg-dark-500">
-      <PageWidth rootTag="header" className="flex items-center gap-4">
-        <Link href={'/'}>
+    <header className="w-full bg-dark-500">
+      <PageWidth className="flex items-center gap-4">
+        <Link href={'/my-page'}>
           <Logo />
         </Link>
         <div className="flex flex-1 items-center justify-end">
@@ -34,7 +34,7 @@ const Header = () => {
             <Link
               key={label}
               href={href}
-              className="flex items-center gap-2 p-2 pr-4 hover:text-primary-400"
+              className="flex items-center gap-2 p-2 pr-4 text-light hover:text-primary-400"
             >
               {icon}
               <span className="min-w-[96px]"> {label}</span>
@@ -43,7 +43,7 @@ const Header = () => {
         </div>
         <HamburgerMenu />
       </PageWidth>
-    </div>
+    </header>
   );
 };
 export default Header;

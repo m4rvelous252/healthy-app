@@ -30,13 +30,15 @@ const FooterItems = [
 
 const Footer = () => {
   return (
-    <div className="w-full bg-dark-500">
-      <PageWidth className="flex py-14 justify-between">
+    <footer className="w-full bg-dark-500">
+      <PageWidth className="flex justify-between py-14 text-light">
         {FooterItems.map(({ href, label }) => (
-          <Link key={label} href={href}>{label}</Link>
+          <Link key={label} href={href}>
+            {label}
+          </Link>
         ))}
       </PageWidth>
-    </div>
+    </footer>
   );
 };
 export default Footer;

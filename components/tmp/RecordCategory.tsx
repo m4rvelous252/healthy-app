@@ -15,8 +15,8 @@ const RecordCategory: FC<RecordCategoryProps> = ({
   title,
 }) => {
   return (
-    <div className="relative w-fit bg-primary-300 p-6">
-      <div className="relative h-60 w-60 bg-black">
+    <div className="relative w-full bg-primary-300 p-6">
+      <div className="relative w-full min-w-[240px] bg-black pt-[100%]">
         <Image
           fill
           className="object-cover opacity-25 mix-blend-luminosity"

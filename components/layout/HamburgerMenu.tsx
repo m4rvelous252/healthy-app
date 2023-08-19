@@ -28,23 +28,32 @@ const menuItems = [
   {
     href: '#',
     label: '設定',
-  }
-]
+  },
+];
 
 const HamburgerMenu = () => {
   const [open, setOpen] = useState(false);
   return (
     <div className="relative">
       {open ? (
-        <CloseIcon className='cursor-pointer' onClick={() => setOpen(false)} />
+        <CloseIcon className="cursor-pointer" onClick={() => setOpen(false)} />
       ) : (
-        <MenuIcon className='cursor-pointer' onClick={() => setOpen(true)} />
+        <MenuIcon className="cursor-pointer" onClick={() => setOpen(true)} />
       )}
-      {open && <div className="absolute grid right-0">
-        {menuItems.map(({label, href}) => (
-          <Link onClick={() => setOpen(false)} className='py-[23px] px-8 min-w-[280px] bg-gray border-y border-t-light/[0.15] border-b-dark-600/25' key={label} href={href}>{label}</Link>
-        ))}
-      </div> } 
+      {open && (
+        <div className="absolute right-0 z-10 grid">
+          {menuItems.map(({ label, href }) => (
+            <Link
+              onClick={() => setOpen(false)}
+              className="min-w-[280px] border-y border-b-dark-600/25 border-t-light/[0.15] bg-gray px-8 py-[23px] text-light"
+              key={label}
+              href={href}
+            >
+              {label}
+            </Link>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

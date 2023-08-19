@@ -1,19 +1,21 @@
-import { inter } from "@/helper/font";
-import clsx from "clsx";
-import Link from "next/link";
-import { FC } from "react";
+import { inter } from '@/helper/font';
+import clsx from 'clsx';
+import Link from 'next/link';
+import { FC } from 'react';
 
 interface HexagonItemProps {
   label: string;
   icon: React.ReactNode;
 }
 
-const HexagonItem: FC<HexagonItemProps> = ({icon, label}) => {
+const HexagonItem: FC<HexagonItemProps> = ({ icon, label }) => {
   return (
-    <div className="h-[136px] w-[136px] flex justify-center items-center px-[10px]">
-      <div className="bg-[url(/Hexagon.svg)] bg-no-repeat w-full h-full bg-center flex flex-col items-center justify-center cursor-pointer">
+    <div className="flex h-[136px] min-w-[136px] items-center justify-center px-[10px]">
+      <div className="flex h-full w-full cursor-pointer flex-col items-center justify-center bg-[url(/Hexagon.svg)] bg-center bg-no-repeat">
         {icon}
-        <span className={clsx(inter.className ,"text-white text-xl leading-6")}>{label}</span>
+        <span className={clsx(inter.className, 'text-xl leading-6 text-white')}>
+          {label}
+        </span>
       </div>
     </div>
   );

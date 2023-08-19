@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { Noto_Sans_JP } from 'next/font/google';
 import './globals.css';
 import Footer from '@/components/layout/Footer';
+import clsx from 'clsx';
 
 const notoSansJP = Noto_Sans_JP({ subsets: ['cyrillic'] });
 
@@ -18,7 +19,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja">
-      <body className={notoSansJP.className}>
+      <body
+        className={clsx(
+          notoSansJP.className,
+          'flex min-h-screen flex-col text-dark-600'
+        )}
+      >
         <Header />
         {children}
         <Footer />
