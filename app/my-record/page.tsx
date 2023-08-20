@@ -3,6 +3,7 @@ import RecordCategory from '@/components/tmp/RecordCategory';
 import BodyRecord from './BodyRecord';
 import MyExercise from './MyExercise';
 import MyDiary from './MyDiary';
+import { DiaryEntries, Exercise } from '@/helper/types';
 
 const RecordCategoryList = [
   {
@@ -26,7 +27,7 @@ const MyRecord = () => {
   return (
     <main className="w-full flex-grow bg-light pb-16 pt-14">
       <PageWidth className="flex flex-col gap-14">
-        <div className="flex gap-12">
+        <div className="grid grid-cols-[repeat(auto-fit,_minmax(240px,_1fr))] gap-12">
           {RecordCategoryList.map((category) => (
             <RecordCategory {...category} key={category.title} />
           ))}
@@ -34,9 +35,7 @@ const MyRecord = () => {
         <div className="h-80 w-full bg-dark-500">
           <BodyRecord />
         </div>
-        <div className="h-[264px] w-full bg-dark-500">
-          <MyExercise />
-        </div>
+        <MyExercise />
         <div className="w-full">
           <MyDiary />
         </div>

@@ -16,7 +16,7 @@ const RecordCategory: FC<RecordCategoryProps> = ({
 }) => {
   return (
     <div className="relative w-full bg-primary-300 p-6">
-      <div className="relative w-full min-w-[240px] bg-black pt-[100%]">
+      <div className="relative w-full bg-black pt-[100%]">
         <Image
           fill
           className="object-cover opacity-25 mix-blend-luminosity"
@@ -33,7 +33,7 @@ const RecordCategory: FC<RecordCategoryProps> = ({
         >
           {title}
         </span>
-        <span className="w-fit min-w-[160px] bg-primary-400 px-2 py-1">
+        <span className="w-fit min-w-[160px] bg-primary-400 px-2 py-1 text-center">
           {description}
         </span>
       </div>

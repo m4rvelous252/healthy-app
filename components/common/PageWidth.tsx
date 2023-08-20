@@ -11,31 +11,20 @@ const PageWidth = ({
   rootTag?: RootTagOptions;
   children: React.ReactNode;
 }) => {
+  const commonClass = 'max-w-5xl lg:max-w-7xl mx-auto px-4 lg:px-0';
   switch (rootTag) {
     case 'header':
       return (
-        <header className={clsx(className, 'max-w-5xl lg:max-w-7xl mx-auto')}>
-          {children}
-        </header>
+        <header className={clsx(className, commonClass)}>{children}</header>
       );
     case 'main':
-      return (
-        <main className={clsx(className, 'max-w-5xl lg:max-w-7xl mx-auto')}>
-          {children}
-        </main>
-      );
+      return <main className={clsx(className, commonClass)}>{children}</main>;
     case 'footer':
       return (
-        <footer className={clsx(className, 'max-w-5xl lg:max-w-7xl mx-auto')}>
-          {children}
-        </footer>
+        <footer className={clsx(className, commonClass)}>{children}</footer>
       );
     default:
-      return (
-        <div className={clsx(className, 'max-w-5xl lg:max-w-7xl mx-auto')}>
-          {children}
-        </div>
-      );
+      return <div className={clsx(className, commonClass)}>{children}</div>;
   }
 };
 export default PageWidth;

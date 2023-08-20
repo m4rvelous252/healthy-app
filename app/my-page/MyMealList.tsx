@@ -1,9 +1,12 @@
+'use client';
+
 import Button from '@/components/common/Button';
 import PageWidth from '@/components/common/PageWidth';
+import Spinner from '@/components/common/Spinner';
 import { CupIcon, KnifeIcon } from '@/components/icon';
 import HexagonItem from '@/components/tmp/HexagonItem';
 import MealThumbnail from '@/components/tmp/MealThumbnail';
-import React from 'react';
+import useLoadMore from '@/util/hooks/useLoadMore';
 
 const filterList = [
   {
@@ -28,46 +31,18 @@ const filterList = [
   },
 ];
 
-const MealList = [
-  {
-    src: '/l01.jpg',
-    info: '05.21.Morning',
-  },
-  {
-    src: '/l02.jpg',
-    info: '05.21.Morning',
-  },
-  {
-    src: '/l03.jpg',
-    info: '05.21.Morning',
-  },
-  {
-    src: '/m01.jpg',
-    info: '05.21.Morning',
-  },
-  {
-    src: '/m02.jpg',
-    info: '05.21.Morning',
-  },
-  {
-    src: '/m03.jpg',
-    info: '05.21.Morning',
-  },
-  {
-    src: '/s01.jpg',
-    info: '05.21.Morning',
-  },
-  {
-    src: '/d01.jpg',
-    info: '05.21.Morning',
-  },
-  {
-    src: '/d02.jpg',
-    info: '05.21.Morning',
-  },
-];
-
 const MyMealList = () => {
+  const {
+    list: mealList,
+    loading,
+    handleLoadMore,
+    parentRef,
+    total,
+  } = useLoadMore<{
+    src: string;
+    info: string;
+  }>('/api/my-meal', { pageSize: 8 });
+
   return (
     <div className="w-full flex-1 bg-white pb-16 pt-6">
       <PageWidth className="flex flex-col items-center justify-center">
@@ -76,12 +51,23 @@ const MyMealList = () => {
             <HexagonItem key={value} {...rest} />
           ))}
         </div>
-        <div className="mb-7 grid w-full grid-cols-4 gap-2">
-          {MealList.map((meal, index) => (
+        <div
+          className="mb-7 grid w-full grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-4"
+          ref={parentRef}
+        >
+          {mealList.map((meal, index) => (
             <MealThumbnail {...meal} key={meal.src + index} />
           ))}
         </div>
-        <Button className="px-20 py-3">記録をもっと見る</Button>
+        {loading ? (
+          <Spinner />
+        ) : (
+          mealList.length < total && (
+            <Button onClick={() => handleLoadMore()} className="px-20 py-3">
+              記録をもっと見る
+            </Button>
+          )
+        )}
       </PageWidth>
     </div>
   );

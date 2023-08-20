@@ -15,7 +15,7 @@ const MealThumbnail: FC<MealThumbnailProps> = ({ info, src }) => {
       <span
         className={clsx(
           inter.className,
-          'absolute bottom-0 bg-primary-300 p-2 text-[15px] leading-[18px] tracking-[0.15px]'
+          'absolute bottom-0 bg-primary-300 p-2 text-[15px] leading-[18px] tracking-[0.15px] text-light'
         )}
       >
         {info}

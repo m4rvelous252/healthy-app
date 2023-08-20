@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { CloseIcon, MenuIcon } from '../icon';
 import Link from 'next/link';
+import { useAutoAnimate } from '@formkit/auto-animate/react';
 
 const menuItems = [
   {
@@ -33,8 +34,9 @@ const menuItems = [
 
 const HamburgerMenu = () => {
   const [open, setOpen] = useState(false);
+  const [parent] = useAutoAnimate();
   return (
-    <div className="relative">
+    <div className="relative" ref={parent}>
       {open ? (
         <CloseIcon className="cursor-pointer" onClick={() => setOpen(false)} />
       ) : (
