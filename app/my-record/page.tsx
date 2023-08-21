@@ -32,7 +32,7 @@ const MyRecord = () => {
             <RecordCategory {...category} key={category.title} />
           ))}
         </div>
-        <div className="h-80 w-full bg-dark-500">
+        <div className="flex h-80 w-full bg-dark-500">
           <BodyRecord />
         </div>
         <MyExercise />

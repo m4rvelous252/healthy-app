@@ -1,5 +1,6 @@
 'use client';
 
+import Spinner from '@/components/common/Spinner';
 import { inter } from '@/helper/font';
 import { Exercise } from '@/helper/types';
 import clsx from 'clsx';
@@ -7,17 +8,18 @@ import { useEffect, useState } from 'react';
 
 const MyExercise = () => {
   const [exerciseList, setExerciseList] = useState<Exercise[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
   useEffect(() => {
     const fetchMyExerciseData = async () => {
-      debugger
+      setLoading(true);
       const res = await fetch(`/api/my-exercise`);
       const {
         data,
       }: {
         data: Exercise[];
       } = await res.json();
-      debugger
       setExerciseList(data);
+      setLoading(false);
     };
     fetchMyExerciseData();
   }, []);
@@ -36,37 +38,41 @@ const MyExercise = () => {
           {new Date().toLocaleDateString()}
         </span>
       </div>
-      <ul className="custom-scrollbar grid h-full gap-x-6 gap-y-2 overflow-y-scroll pr-2 md:grid-cols-2">
-        {exerciseList.map((exercise) => (
-          <li
-            key={exercise.id}
-            className="flex gap-2 border-b border-b-gray pb-2"
-          >
-            <span className="pt-2 text-[5px] font-light">● </span>
-            <div className="flex-grow">
-              <p className="text-base font-light leading-[22px] tracking-[0.075px]">
-                {exercise.name}
-              </p>
+      {loading ? (
+        <Spinner />
+      ) : (
+        <ul className="custom-scrollbar grid h-full gap-x-6 gap-y-2 overflow-y-scroll pr-2 md:grid-cols-2">
+          {exerciseList.map((exercise) => (
+            <li
+              key={exercise.id}
+              className="flex gap-2 border-b border-b-gray pb-2"
+            >
+              <span className="pt-2 text-[5px] font-light">● </span>
+              <div className="flex-grow">
+                <p className="text-base font-light leading-[22px] tracking-[0.075px]">
+                  {exercise.name}
+                </p>
+                <p
+                  className={clsx(
+                    inter.className,
+                    'text-base leading-[18px] tracking-[0.075px] text-primary-300'
+                  )}
+                >
+                  {exercise.calories}kcal
+                </p>
+              </div>
               <p
                 className={clsx(
                   inter.className,
-                  'text-base leading-[18px] tracking-[0.075px] text-primary-300'
+                  'text-lg leading-[22px] tracking-[0.09px] text-primary-300'
                 )}
               >
-                {exercise.calories}kcal
+                {exercise.time}
               </p>
-            </div>
-            <p
-              className={clsx(
-                inter.className,
-                'text-lg leading-[22px] tracking-[0.09px] text-primary-300'
-              )}
-            >
-              {exercise.time}
-            </p>
-          </li>
-        ))}
-      </ul>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };

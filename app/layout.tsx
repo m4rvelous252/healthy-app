@@ -22,7 +22,7 @@ export default function RootLayout({
       <body
         className={clsx(
           notoSansJP.className,
-          'flex min-h-screen flex-col text-dark-600'
+          'flex min-h-screen flex-col bg-light text-dark-600'
         )}
       >
         <Header />

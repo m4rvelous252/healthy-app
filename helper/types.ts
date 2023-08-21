@@ -27,3 +27,9 @@ export interface Exercise {
   time: string;
   createdAt: string;
 }
+
+export interface BodyRecord {
+  date: string;
+  weight: number;
+  muscle: number;
+}

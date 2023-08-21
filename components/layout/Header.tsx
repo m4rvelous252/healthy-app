@@ -37,7 +37,7 @@ const Header = () => {
               className="flex items-center gap-2 p-2 pr-4 text-light hover:text-primary-400"
             >
               {icon}
-              <span className="min-w-[96px]"> {label}</span>
+              <span className="hidden min-w-[96px] md:block"> {label}</span>
             </Link>
           ))}
         </div>

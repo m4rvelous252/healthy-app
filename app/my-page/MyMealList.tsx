@@ -46,7 +46,7 @@ const MyMealList = () => {
   return (
     <div className="w-full flex-1 bg-white pb-16 pt-6">
       <PageWidth className="flex flex-col items-center justify-center">
-        <div className="mb-6 flex items-center justify-center gap-16">
+        <div className="mb-6 grid w-full grid-cols-2 items-center justify-center gap-16 md:grid-cols-4">
           {filterList.map(({ value, ...rest }) => (
             <HexagonItem key={value} {...rest} />
           ))}
