@@ -34,7 +34,7 @@ const ScrollToTopBtn = () => {
     <ScrollToTopIcon
       className={clsx(
         visible ? 'block' : 'hidden',
-        'fixed right-24 top-3/4 z-50 cursor-pointer'
+        'fixed right-2 top-3/4 z-50 cursor-pointer md:right-24'
       )}
       onClick={scrollToTop}
     />
