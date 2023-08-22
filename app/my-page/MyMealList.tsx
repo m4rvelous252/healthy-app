@@ -4,8 +4,8 @@ import Button from '@/components/common/Button';
 import PageWidth from '@/components/common/PageWidth';
 import Spinner from '@/components/common/Spinner';
 import { CupIcon, KnifeIcon } from '@/components/icon';
-import HexagonItem from '@/components/tmp/HexagonItem';
-import MealThumbnail from '@/components/tmp/MealThumbnail';
+import HexagonItem from '@/app/my-page/HexagonItem';
+import MealThumbnail from '@/app/my-page/MealThumbnail';
 import useLoadMore from '@/util/hooks/useLoadMore';
 
 const filterList = [
@@ -45,8 +45,8 @@ const MyMealList = () => {
 
   return (
     <div className="w-full flex-1 bg-white pb-16 pt-6">
-      <PageWidth className="flex flex-col items-center justify-center">
-        <div className="mb-6 grid w-full grid-cols-2 items-center justify-center gap-16 md:grid-cols-4">
+      <PageWidth className=" flex flex-col items-center justify-center overflow-visible">
+        <div className="mb-6 grid w-full grid-cols-2 items-center justify-center gap-2 md:grid-cols-4">
           {filterList.map(({ value, ...rest }) => (
             <HexagonItem key={value} {...rest} />
           ))}

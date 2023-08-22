@@ -1,6 +1,5 @@
 import { inter } from '@/helper/font';
 import clsx from 'clsx';
-import Link from 'next/link';
 import { FC } from 'react';
 
 interface HexagonItemProps {

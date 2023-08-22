@@ -1,9 +1,8 @@
+import RecordCategory from '@/app/my-record/RecordCategory';
 import PageWidth from '@/components/common/PageWidth';
-import RecordCategory from '@/components/tmp/RecordCategory';
 import BodyRecord from './BodyRecord';
-import MyExercise from './MyExercise';
 import MyDiary from './MyDiary';
-import { DiaryEntries, Exercise } from '@/helper/types';
+import MyExercise from './MyExercise';
 
 const RecordCategoryList = [
   {

@@ -2,7 +2,7 @@
 
 import Button from '@/components/common/Button';
 import Spinner from '@/components/common/Spinner';
-import ColumnThumbnail from '@/components/tmp/ColumnThumbnail';
+import ColumnThumbnail from '@/app/column/ColumnThumbnail';
 import { Column } from '@/helper/types';
 import useLoadMore from '@/util/hooks/useLoadMore';
 

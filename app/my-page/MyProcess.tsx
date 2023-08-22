@@ -6,7 +6,7 @@ import Image from 'next/image';
 const MyProcess = () => {
   return (
     <div className="relative">
-      <div className="relative pt-[58.51%] md:min-w-[540px]">
+      <div className="relative w-full pt-[58.51%] md:min-w-[540px]">
         <Image
           src={'/d01.jpg'}
           alt="my process"
