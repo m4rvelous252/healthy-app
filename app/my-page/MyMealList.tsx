@@ -7,6 +7,7 @@ import { CupIcon, KnifeIcon } from '@/components/icon';
 import HexagonItem from '@/app/my-page/HexagonItem';
 import MealThumbnail from '@/app/my-page/MealThumbnail';
 import useLoadMore from '@/util/hooks/useLoadMore';
+import { z } from 'zod';
 
 const filterList = [
   {
@@ -30,6 +31,11 @@ const filterList = [
     icon: <CupIcon />,
   },
 ];
+
+const MealSchema = z.object({
+  src: z.string(),
+  info: z.string(),
+});
 
 const MyMealList = () => {
   const {
